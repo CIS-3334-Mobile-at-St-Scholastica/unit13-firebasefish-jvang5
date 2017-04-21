@@ -45,7 +45,7 @@
         android:id="@+id/editTextWeight" />
 
     <TextView
-        android:text="Date"
+        android:text="@string/date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView5" />
@@ -56,6 +56,30 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/editTextDate" />
+
+    <TextView
+        android:id="@+id/textViewLat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Latitude" />
+
+    <EditText
+        android:id="@+id/editTextLat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
+
+    <TextView
+        android:id="@+id/textViewLon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Longitude" />
+
+    <EditText
+        android:id="@+id/editTextLon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" />
 
     <Button
         android:text="Save Fish"

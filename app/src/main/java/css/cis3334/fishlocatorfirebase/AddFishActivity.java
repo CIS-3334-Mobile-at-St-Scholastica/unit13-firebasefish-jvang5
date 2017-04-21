@@ -14,7 +14,7 @@ import com.google.firebase.database.DatabaseReference;
 public class AddFishActivity extends AppCompatActivity {
 
     Button buttonSave;
-    EditText editTextSpecies, editTextWeight, editTextDate;
+    EditText editTextSpecies, editTextWeight, editTextDate, editTextLat, editTextLon;
     Double lattitude, longiture;
     FishFirebaseData fishDataSource;
 
@@ -27,6 +27,8 @@ public class AddFishActivity extends AppCompatActivity {
         editTextSpecies = (EditText) findViewById(R.id.editTextSpecies);
         editTextWeight = (EditText) findViewById(R.id.editTextWeight);
         editTextDate = (EditText) findViewById(R.id.editTextDate);
+        editTextLat = (EditText) findViewById(R.id.editTextLat);
+        editTextLon = (EditText) findViewById(R.id.editTextLon);
 
         fishDataSource = new FishFirebaseData();
         fishDataSource.open();
@@ -46,8 +48,11 @@ public class AddFishActivity extends AppCompatActivity {
                 String species = editTextSpecies.getText().toString();
                 String weight = editTextWeight.getText().toString();
                 String dateCaught = editTextDate.getText().toString();
-                fishDataSource.createFish(species, weight, dateCaught);
-                //fishDataSource.createFish(species, weight, dateCaught, lattitude.toString(), longiture.toString());
+                String lat = editTextLat.getText().toString();
+                String lon = editTextLon.getText().toString();
+
+                //fishDataSource.createFish(species, weight, dateCaught);
+                fishDataSource.createFish(species, weight, dateCaught, lat, lon);
                 Intent mainActIntent = new Intent(view.getContext(), MainActivity.class);
                 finish();
                 startActivity(mainActIntent);

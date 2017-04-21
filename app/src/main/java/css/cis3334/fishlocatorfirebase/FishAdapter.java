@@ -48,9 +48,14 @@ public class FishAdapter extends ArrayAdapter<Fish> {
         TextView tvSpecies=(TextView)view.findViewById(R.id.textViewSpecies);
         TextView tvWeight=(TextView)view.findViewById(R.id.textViewWeight);
         TextView tvDate=(TextView)view.findViewById(R.id.textViewDate);
+        TextView tvLat=(TextView)view.findViewById(R.id.textViewLat);
+        TextView tvLon=(TextView)view.findViewById(R.id.textViewLon);
+
         tvSpecies.setText(fish.getSpecies());
         tvWeight.setText(fish.getWeightInOz());
         tvDate.setText(fish.getDateCaught());
+        tvLat.setText(fish.getLocationCaughtLatitude());
+        tvLon.setText(fish.getLocationCaughtLongitude());
 
         return(view);
     }
