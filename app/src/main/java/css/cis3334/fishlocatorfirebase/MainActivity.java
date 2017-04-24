@@ -39,13 +39,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d("CSS334", "this is before we do all the setup.");
+        Log.i("CSS334", "this is before we do all the setup.");
         setupFirebaseDataChange();
         setupListView();
         setupAddButton();
         setupDetailButton();
         setupDeleteButton();
-        Log.d("CSS334", "this is right after we do all the setup.");
+        Log.i("CSS334", "this is right after we do all the setup.");
 
         /*mAuthListener = new FirebaseAuth.AuthStateListener() { //initialized mAuthListener
             @Override
