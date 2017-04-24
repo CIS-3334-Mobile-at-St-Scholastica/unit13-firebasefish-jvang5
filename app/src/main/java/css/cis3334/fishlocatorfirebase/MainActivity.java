@@ -31,23 +31,23 @@ public class MainActivity extends AppCompatActivity {
     int positionSelected;
     Fish fishSelected;
 
-//    private FirebaseAuth mAuth;
-//    private FirebaseAuth.AuthStateListener mAuthListener;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.i("CSS334", "this is before we do all the setup.");
         setupFirebaseDataChange();
         setupListView();
         setupAddButton();
         setupDetailButton();
         setupDeleteButton();
-        Log.i("CSS334", "this is right after we do all the setup.");
 
-        /*mAuthListener = new FirebaseAuth.AuthStateListener() { //initialized mAuthListener
+        mAuth = FirebaseAuth.getInstance(); //declare object for Firebase
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() { //initialized mAuthListener
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 //track the user when they sign in or out using the firebaseAuth
@@ -59,21 +59,22 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(signInIntent);
                 }
             }
-        };  */
+        };
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        //mAuth.addAuthStateListener(mAuthListener);
+       mAuth.addAuthStateListener(mAuthListener);
     }
 
     @Override
     public void onStop() {
-//        super.onStop();
-//        if (mAuthListener != null) {
-//            mAuth.removeAuthStateListener(mAuthListener);
-//        }
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+            mAuth.signOut();
+        }
     }
 
     private void setupFirebaseDataChange() {

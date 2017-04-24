@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Email: " />
+            android:text="@string/email" />
 
         <EditText
             android:id="@+id/editTextEmail"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="jenni@gmail.com"
+            android:hint="@string/jenni_gmail_com"
             android:inputType="textEmailAddress" />
 
     </LinearLayout>
@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Password: " />
+            android:text="@string/password" />
 
         <EditText
             android:id="@+id/editTextPassword"
@@ -47,7 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            tools:ignore="LabelFor" />
 
     </LinearLayout>
 
@@ -61,13 +62,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Create New User" />
+            android:text="@string/create_new_user"
+            tools:ignore="ButtonStyle" />
 
         <Button
             android:id="@+id/buttonLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Login" />
+            android:text="@string/login"
+            tools:ignore="ButtonStyle" />
     </LinearLayout>
 </LinearLayout>

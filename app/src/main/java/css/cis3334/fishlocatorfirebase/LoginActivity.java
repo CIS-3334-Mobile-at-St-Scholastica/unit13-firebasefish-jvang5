@@ -3,6 +3,7 @@ package css.cis3334.fishlocatorfirebase;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,13 +24,19 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        Log.i("INFO:", "Inside LoginActivity right afer onCreate()");
+        createNewUser = (Button) findViewById(R.id.buttonNew);
+        login = (Button) findViewById(R.id.buttonLogin);
         email = (EditText) findViewById(R.id.editTextEmail);
         password = (EditText) findViewById(R.id.editTextPassword);
 
+        mAuth = FirebaseAuth.getInstance();
         createNewUser.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 createAccount(email.getText().toString(), password.getText().toString());
+                Toast.makeText(getApplicationContext(), "Successfully created new user.", Toast.LENGTH_LONG)
+                        .show();
+
             }
         });
 
@@ -40,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private void signIn(String email, String password){
         //sign in the recurrent user with email and password previously created.
